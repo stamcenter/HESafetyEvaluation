@@ -1,0 +1,4 @@
+in int32 a
+in uint32 b
+call SelectLayers
+return uint32 d

@@ -1,0 +1,3 @@
+in uint64 center
+call SampleC
+return uint32 c

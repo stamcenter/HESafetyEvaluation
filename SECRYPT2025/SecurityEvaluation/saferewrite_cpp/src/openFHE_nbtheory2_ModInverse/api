@@ -1,0 +1,4 @@
+in uint32 a
+in uint32 b
+call ModInverse
+return uint32 x

@@ -1,0 +1,4 @@
+call get_coeff_power
+in int8 poly 32
+in int32 powerlength 32
+return int8 z

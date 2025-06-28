@@ -1,0 +1,5 @@
+in uint64 operand
+in uint64 exponent
+call exponentiate_uint_safe
+return uint64 z
+

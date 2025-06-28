@@ -1,0 +1,3 @@
+call get_plus
+in int8 poly 32
+return int8 z

@@ -1,0 +1,4 @@
+in uint64 i
+in uint64 m
+call evalpoly
+return uint32 z

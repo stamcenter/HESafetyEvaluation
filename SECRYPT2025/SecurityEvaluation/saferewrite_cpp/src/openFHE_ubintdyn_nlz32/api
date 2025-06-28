@@ -1,0 +1,3 @@
+out uint32 x
+call verify
+return uint32 z

@@ -1,0 +1,3 @@
+in uint32 num
+call getSBoxValue
+return int32 z

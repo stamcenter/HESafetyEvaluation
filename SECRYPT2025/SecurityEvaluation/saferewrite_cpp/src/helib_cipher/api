@@ -1,0 +1,4 @@
+out int8 out 1522
+in int8 in 1522
+out int8 roundkey 1522
+call Cipher

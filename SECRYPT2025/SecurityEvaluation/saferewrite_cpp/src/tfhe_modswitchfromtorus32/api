@@ -1,0 +1,3 @@
+in uint32 phase
+in uint32 msize
+call modSwitchFromTorus32

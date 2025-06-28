@@ -1,0 +1,3 @@
+in uint64 num
+in uint64 bitsize
+call longtobitvector

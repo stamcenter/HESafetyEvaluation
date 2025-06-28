@@ -1,0 +1,3 @@
+in uint32 mu
+in uint32 msize
+call modSwitchToTorus32

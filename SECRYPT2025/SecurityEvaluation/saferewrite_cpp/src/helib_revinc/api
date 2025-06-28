@@ -1,0 +1,4 @@
+out uint64 a
+in uint64 k
+call RevInc
+return uint64 z

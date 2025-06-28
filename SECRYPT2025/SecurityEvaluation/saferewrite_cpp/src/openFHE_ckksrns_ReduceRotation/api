@@ -1,0 +1,4 @@
+out uint32 index
+inout uint32 slots
+call ReduceRotation
+return uint32 d

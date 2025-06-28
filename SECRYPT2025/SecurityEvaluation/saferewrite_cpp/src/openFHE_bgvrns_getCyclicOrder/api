@@ -1,0 +1,5 @@
+in uint32 a
+in int32 b
+in uint32 c
+call getCyclicOrder
+return uint64 d

@@ -1,0 +1,3 @@
+in uint64 peprime
+in uint64 pe
+call compute_fudge
