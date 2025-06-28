@@ -1,0 +1,5 @@
+# mismatch between CPU execution of binary and Z3 execution of unrolled:
+executed_out_x_0 = 0
+unrolled_out_x_0 = 134217728
+executed_out_z_0 = 32
+unrolled_out_z_0 = 4
