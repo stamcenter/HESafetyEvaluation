@@ -1,0 +1,17 @@
+v1 = mem_c0000f80_111_64
+v2 = Extract(v1,7,0)
+v3 = Extract(v1,15,8)
+v4 = Extract(v1,23,16)
+v5 = Extract(v1,31,24)
+v6 = Extract(v1,39,32)
+v7 = Extract(v1,47,40)
+v8 = Extract(v1,55,48)
+v9 = Extract(v1,63,56)
+out_h_0 = v2
+out_h_1 = v3
+out_h_2 = v4
+out_h_3 = v5
+out_h_4 = v6
+out_h_5 = v7
+out_h_6 = v8
+out_h_7 = v9
