@@ -1,0 +1,3 @@
+/usr/bin/ld: analysis-execute.o: in function `main':
+analysis-execute.cpp:(.text.startup+0x5b): undefined reference to `ReduceRotation(unsigned int, unsigned int)'
+collect2: error: ld returned 1 exit status
