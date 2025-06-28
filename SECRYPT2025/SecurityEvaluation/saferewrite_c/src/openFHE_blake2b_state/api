@@ -1,0 +1,2 @@
+call black2b_state
+return uint32 d

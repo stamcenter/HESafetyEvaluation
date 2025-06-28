@@ -1,0 +1,85 @@
+2017.12.09 initial release of official Frodo software used memcmp():
+  https://github.com/microsoft/PQCrypto-LWEKE/blob/ff2bcc5e85bb6e39ec7bd96675e4643f77fb75ec/src/kem.c
+
+2020.06.18 Guo--Johansson--Nilsson paper exploited timing variability:
+  https://eprint.iacr.org/2020/743
+
+2020.06.18 official Frodo software introduced a "ct_verify" subroutine:
+  https://github.com/microsoft/PQCrypto-LWEKE/blob/155c24c3df47be6d5d9845fea37be110945e963c/src/util.c
+
+2020.12.10 Saarinen pointed out that this subroutine was disastrously wrong:
+  https://groups.google.com/a/list.nist.gov/g/pqc-forum/c/kSUKzDNc5ME/m/EMFYz9RNCAAJ
+
+2020.12.11 official Frodo software fixed the bug:
+  https://github.com/microsoft/PQCrypto-LWEKE/blob/669522db63850fa64d1a24a47e138e80a59349db/src/util.c
+
+2021.09.14 saferewrite benchmarks:
+
+build/cmp_64xint16/frodo3/gcc_-O3_-march_native_-mtune_native seconds unroll 5.425888
+build/cmp_64xint16/frodo2/gcc_-O3_-march_native_-mtune_native seconds unroll 5.392725
+build/cmp_64xint16/frodo2/clang_-O1_-fwrapv_-march_native seconds unroll 6.499074
+build/cmp_64xint16/bitops/gcc_-O3_-march_native_-mtune_native seconds unroll 6.627832
+build/cmp_64xint16/bitops/clang_-O1_-fwrapv_-march_native seconds unroll 6.595154
+build/cmp_64xint16/frodo3/clang_-O1_-fwrapv_-march_native seconds unroll 6.558986
+build/cmp_64xint16/openssl/gcc_-O3_-march_native_-mtune_native seconds unroll 7.689786
+build/cmp_64xint16/openssl/clang_-O1_-fwrapv_-march_native seconds unroll 7.738689
+build/cmp_64xint16/libc3/clang_-O1_-fwrapv_-march_native unsafe-unrollsplit-9
+build/cmp_64xint16/libc2/gcc_-O3_-march_native_-mtune_native unsafe-unrollsplit-9
+build/cmp_64xint16/libc1/clang_-O1_-fwrapv_-march_native unsafe-unrollsplit-9
+build/cmp_64xint16/libc5/clang_-O1_-fwrapv_-march_native unsafe-unrollsplit-9
+build/cmp_64xint16/libc5/gcc_-O3_-march_native_-mtune_native unsafe-unrollsplit-9
+build/cmp_64xint16/libc3/gcc_-O3_-march_native_-mtune_native unsafe-unrollsplit-9
+build/cmp_64xint16/libc2/clang_-O1_-fwrapv_-march_native unsafe-unrollsplit-9
+build/cmp_64xint16/libc5/clang_-O1_-fwrapv_-march_native warning-unrollmem
+build/cmp_64xint16/libc1/gcc_-O3_-march_native_-mtune_native unsafe-unrollsplit-9
+build/cmp_64xint16/libc5/gcc_-O3_-march_native_-mtune_native warning-unrollmem
+build/cmp_64xint16/libc3/clang_-O1_-fwrapv_-march_native seconds unroll 20.940481
+build/cmp_64xint16/libc2/gcc_-O3_-march_native_-mtune_native seconds unroll 20.885475
+build/cmp_64xint16/libc5/clang_-O1_-fwrapv_-march_native warning-unrollmismatch
+build/cmp_64xint16/libc5/gcc_-O3_-march_native_-mtune_native warning-unrollmismatch
+build/cmp_64xint16/libc1/clang_-O1_-fwrapv_-march_native seconds unroll 21.058225
+build/cmp_64xint16/libc4/gcc_-O3_-march_native_-mtune_native unsafe-unrollsplit-15
+build/cmp_64xint16/libc2/clang_-O1_-fwrapv_-march_native seconds unroll 21.401981
+build/cmp_64xint16/libc3/gcc_-O3_-march_native_-mtune_native seconds unroll 21.478138
+build/cmp_64xint16/libc1/gcc_-O3_-march_native_-mtune_native seconds unroll 21.481857
+build/cmp_64xint16/libc4/clang_-O1_-fwrapv_-march_native unsafe-unrollsplit-15
+build/cmp_64xint16/libc4/gcc_-O3_-march_native_-mtune_native seconds unroll 22.507462
+build/cmp_64xint16/libc4/clang_-O1_-fwrapv_-march_native seconds unroll 22.577602
+build/cmp_64xint16/ref/gcc_-O3_-march_native_-mtune_native unsafe-unrollsplit-65
+build/cmp_64xint16/ref/gcc_-O3_-march_native_-mtune_native seconds unroll 51.849370
+build/cmp_64xint16/ref/clang_-O1_-fwrapv_-march_native unsafe-unrollsplit-65
+build/cmp_64xint16/ref/clang_-O1_-fwrapv_-march_native seconds unroll 52.890177
+build/cmp_64xint16/ref/gcc_-O3_-march_native_-mtune_native equals-ref-clang_-O1_-fwrapv_-march_native
+build/cmp_64xint16/ref/gcc_-O3_-march_native_-mtune_native seconds equiv 0.248573
+build/cmp_64xint16/frodo3/gcc_-O3_-march_native_-mtune_native equals-ref-gcc_-O3_-march_native_-mtune_native
+build/cmp_64xint16/frodo3/gcc_-O3_-march_native_-mtune_native seconds equiv 0.308765
+build/cmp_64xint16/bitops/gcc_-O3_-march_native_-mtune_native equals-ref-gcc_-O3_-march_native_-mtune_native
+build/cmp_64xint16/bitops/gcc_-O3_-march_native_-mtune_native seconds equiv 0.319264
+build/cmp_64xint16/bitops/clang_-O1_-fwrapv_-march_native equals-ref-clang_-O1_-fwrapv_-march_native
+build/cmp_64xint16/bitops/clang_-O1_-fwrapv_-march_native seconds equiv 0.380582
+build/cmp_64xint16/frodo3/clang_-O1_-fwrapv_-march_native equals-ref-clang_-O1_-fwrapv_-march_native
+build/cmp_64xint16/frodo3/clang_-O1_-fwrapv_-march_native seconds equiv 0.369558
+build/cmp_64xint16/openssl/clang_-O1_-fwrapv_-march_native equals-ref-clang_-O1_-fwrapv_-march_native
+build/cmp_64xint16/openssl/clang_-O1_-fwrapv_-march_native seconds equiv 0.387227
+build/cmp_64xint16/openssl/gcc_-O3_-march_native_-mtune_native equals-ref-gcc_-O3_-march_native_-mtune_native
+build/cmp_64xint16/openssl/gcc_-O3_-march_native_-mtune_native seconds equiv 0.434724
+build/cmp_64xint16/frodo2/clang_-O1_-fwrapv_-march_native unsafe-differentfrom-ref-clang_-O1_-fwrapv_-march_native
+build/cmp_64xint16/frodo2/clang_-O1_-fwrapv_-march_native seconds equiv 0.504732
+build/cmp_64xint16/frodo2/gcc_-O3_-march_native_-mtune_native unsafe-differentfrom-ref-gcc_-O3_-march_native_-mtune_native
+build/cmp_64xint16/frodo2/gcc_-O3_-march_native_-mtune_native seconds equiv 0.590421
+build/cmp_64xint16/libc3/clang_-O1_-fwrapv_-march_native equals-ref-clang_-O1_-fwrapv_-march_native
+build/cmp_64xint16/libc3/clang_-O1_-fwrapv_-march_native seconds equiv 1.005013
+build/cmp_64xint16/libc3/gcc_-O3_-march_native_-mtune_native equals-ref-gcc_-O3_-march_native_-mtune_native
+build/cmp_64xint16/libc3/gcc_-O3_-march_native_-mtune_native seconds equiv 0.980946
+build/cmp_64xint16/libc1/gcc_-O3_-march_native_-mtune_native unsafe-differentfrom-ref-gcc_-O3_-march_native_-mtune_native
+build/cmp_64xint16/libc1/gcc_-O3_-march_native_-mtune_native seconds equiv 1.403563
+build/cmp_64xint16/libc2/gcc_-O3_-march_native_-mtune_native unsafe-differentfrom-ref-gcc_-O3_-march_native_-mtune_native
+build/cmp_64xint16/libc2/gcc_-O3_-march_native_-mtune_native seconds equiv 1.339935
+build/cmp_64xint16/libc1/clang_-O1_-fwrapv_-march_native unsafe-differentfrom-ref-clang_-O1_-fwrapv_-march_native
+build/cmp_64xint16/libc1/clang_-O1_-fwrapv_-march_native seconds equiv 1.429444
+build/cmp_64xint16/libc2/clang_-O1_-fwrapv_-march_native unsafe-differentfrom-ref-clang_-O1_-fwrapv_-march_native
+build/cmp_64xint16/libc2/clang_-O1_-fwrapv_-march_native seconds equiv 1.462064
+build/cmp_64xint16/libc4/clang_-O1_-fwrapv_-march_native unsafe-differentfrom-ref-clang_-O1_-fwrapv_-march_native
+build/cmp_64xint16/libc4/clang_-O1_-fwrapv_-march_native seconds equiv 1.682035
+build/cmp_64xint16/libc4/gcc_-O3_-march_native_-mtune_native unsafe-differentfrom-ref-gcc_-O3_-march_native_-mtune_native
+build/cmp_64xint16/libc4/gcc_-O3_-march_native_-mtune_native seconds equiv 1.596863

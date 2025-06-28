@@ -1,0 +1,3 @@
+out uint8 h 32
+in uint8 in 32
+call sha3_256

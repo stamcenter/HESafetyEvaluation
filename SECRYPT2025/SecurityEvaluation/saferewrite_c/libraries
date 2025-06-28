@@ -1,0 +1,21 @@
+Libraries to examine
+
+SEAL - C/C++
+openFHE - C/C++
+HElib - C++
+cuFHE - CUDA-accelerated TFHE NTT - C++
+HEAAN - C++ / No Longer maintained
+tfhe - C++ / No Longer maintained
+
+tfhe - 
+generic-streams - fread
+numeeric-functions - modSwitchToTorus32
+lwe-functions - intVecSubTo_avx_test
+fft
+lagrangehalfc_impl - LagrangeHalfCPolynomial_IMPL
+nayukai
+fft-model-of-x8664-avx
+fft-portable - floor_log2, reverse_bits
+ftt-test - random_reals, memdup
+fft-x8664-avx-aux
+accurate_sine, floor_log2, reverse_bits

@@ -1,0 +1,4 @@
+in uint64 x
+in uint32 n
+call reverse_bits
+return uint64 z

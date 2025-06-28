@@ -1,0 +1,2 @@
+out uint8 out 16
+call shake256

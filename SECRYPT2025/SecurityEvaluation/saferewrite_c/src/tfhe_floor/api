@@ -1,0 +1,3 @@
+in uint64 n 1
+call floor_log2
+return int32 z

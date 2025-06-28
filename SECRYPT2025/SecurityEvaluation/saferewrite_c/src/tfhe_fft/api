@@ -1,0 +1,2 @@
+in int8 tables 112
+call fft_destroy

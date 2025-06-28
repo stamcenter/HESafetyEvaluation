@@ -1,0 +1,2 @@
+out uint64 state 25
+call keccakf1600

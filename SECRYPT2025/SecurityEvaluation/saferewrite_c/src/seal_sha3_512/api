@@ -1,0 +1,3 @@
+in int8 in 64
+out int8 h 8
+call sha3_512

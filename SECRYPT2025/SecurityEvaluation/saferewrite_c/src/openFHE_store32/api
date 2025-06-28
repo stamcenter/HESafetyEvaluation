@@ -1,0 +1,4 @@
+in uint32 w 32
+inout int8 dst
+call store32
+return uint32 a

@@ -1,0 +1,5 @@
+in uint8 in 1
+in uint8 key
+out uint8 out 1
+call blake2
+return uint32 z
