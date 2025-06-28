@@ -1,0 +1,111 @@
+0. These instructions assume Debian or Ubuntu.
+
+Most of the examples of optimized code are for AVX2 (Haswell and newer)
+and won't run on other platforms. saferewrite automatically skips the
+implementations that don't run and analyzes the implementations that do.
+
+Some of the current analyses use 100GB of RAM, although most use less.
+Also, saferewrite will automatically run multiple analyses in parallel
+if many cores are available, and has been observed using 1TB of RAM
+overall. These instructions include mechanisms to select particular
+analyses and to limit parallelism, but it is good to use a modern server
+with a reasonable amount of RAM.
+
+
+1. First time, as root, install packages:
+
+   apt install python3 virtualenvwrapper build-essential clang valgrind
+
+All subsequent steps are unprivileged.
+
+
+2. First time, as user, create a saferewrite environment:
+
+   mkvirtualenv -p /usr/bin/python3 saferewrite
+
+If this doesn't work, try running
+
+   . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+first, or try a new shell.
+
+If your system has pypy3 then you can use that instead of python3 here,
+and run "pypy3 ./analyze &" below. This can save a considerable fraction
+of unrolling time but doesn't help for Z3 time, which is typically a
+bigger bottleneck.
+
+
+3. First time, as user, install angr within the saferewrite environment:
+
+   pip install angr
+
+
+4. Subsequent times, as user, switch to the saferewrite environment:
+
+   workon saferewrite
+
+If this doesn't work, try running
+
+   . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+first, or try a new shell, as in step 3.
+
+
+5. Optionally, in this directory, narrow the analysis to cmp* (or
+whichever subdirectories you're interested in under src):
+
+   chmod +t src/*
+   chmod -t src/cmp*
+
+
+6. In this directory, analyze everything:
+
+   ./analyze &
+
+This will put results in a ./build directory, wiping out any previous
+./build results.
+
+The analysis automatically runs on as many cores as it can find. If you
+want to limit the number of cores:
+
+   env CORES=1 ./analyze &
+
+If you want to interrupt the analysis, use SIGTERM (kill with default
+options) rather than SIGINT (^C).
+
+
+7. Look at the analysis results:
+
+   ls -1 build/*/*/*/analysis/*
+
+To see examples showing implementations are different:
+
+   less build/*/*/*/analysis/*different*
+
+To see what the analysis thinks each implementation is doing:
+
+   less build/*/*/*/analysis/unrolled
+   
+   
+ We have two sets of functions those 
+ Those in C and those in C++.
+
+Beginning of Work from saferewrite
+
+To run C++, you have to : 
+ 
+   	chmod +t src/*
+   	chmod -t src/seal_u_exponentiate_uint
+   	chmod -t src/seal_u_exponentiate_uint_safe
+   	chmod -t src/seal_p_get_coeff_power
+	chmod -t src/seal_ntt
+   
+To run the C program,
+change the analyze file from canalyze to analayze then run the following commands:
+
+	chmod +t src/*
+   	chmod -t src/seal_load64
+   	chmod -t src/seal_sha3_512
+   	chmod -t src/seal_Store64
+   	chmod -t src/seal_blake2b
+   
