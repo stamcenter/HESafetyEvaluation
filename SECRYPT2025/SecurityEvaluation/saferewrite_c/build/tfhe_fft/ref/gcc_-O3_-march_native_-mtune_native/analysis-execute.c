@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <inttypes.h>
+
+extern void fft_destroy(uint8_t *);
+
+uint8_t static_tables[112];
+
+int main(int argc,char **argv)
+{
+  uint8_t *alloc_tables = malloc(112);
+
+  for (long long i = 0;i < 112;++i) {
+    unsigned long long x;
+    if (scanf("%llu",&x) != 1) abort();
+    static_tables[i] = x;
+  }
+
+  for (long long i = 0;i < 112;++i)
+    alloc_tables[i] = static_tables[i];
+
+  fft_destroy(alloc_tables);
+
+
+
+  return 0;
+}
