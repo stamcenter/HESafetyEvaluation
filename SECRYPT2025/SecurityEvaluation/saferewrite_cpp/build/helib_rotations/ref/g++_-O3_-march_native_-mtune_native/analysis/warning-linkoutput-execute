@@ -1,0 +1,23 @@
+/usr/bin/ld: rotation.o: in function `allrotate()':
+rotation.cpp:(.text+0xe): undefined reference to `operator new(unsigned long)'
+/usr/bin/ld: rotation.cpp:(.text+0x2e): undefined reference to `operator delete(void*, unsigned long)'
+/usr/bin/ld: rotation.o: in function `simpleRotate(Cube const&, long)':
+rotation.cpp:(.text+0xe2): undefined reference to `operator new(unsigned long)'
+/usr/bin/ld: rotation.cpp:(.text+0x118): undefined reference to `operator delete(void*, unsigned long)'
+/usr/bin/ld: rotation.cpp:(.text+0x2a0): undefined reference to `std::__throw_bad_array_new_length()'
+/usr/bin/ld: rotation.cpp:(.text+0x2b1): undefined reference to `std::__throw_out_of_range_fmt(char const*, ...)'
+/usr/bin/ld: rotation.cpp:(.text+0x2c5): undefined reference to `std::__throw_out_of_range_fmt(char const*, ...)'
+/usr/bin/ld: rotation.cpp:(.text+0x2ec): undefined reference to `std::__throw_bad_alloc()'
+/usr/bin/ld: rotation.o: in function `std::vector<int, std::allocator<int> >::_M_default_append(unsigned long)':
+rotation.cpp:(.text._ZNSt6vectorIiSaIiEE17_M_default_appendEm[_ZNSt6vectorIiSaIiEE17_M_default_appendEm]+0x171): undefined reference to `operator delete(void*, unsigned long)'
+/usr/bin/ld: rotation.cpp:(.text._ZNSt6vectorIiSaIiEE17_M_default_appendEm[_ZNSt6vectorIiSaIiEE17_M_default_appendEm]+0x1a7): undefined reference to `operator new(unsigned long)'
+/usr/bin/ld: rotation.cpp:(.text._ZNSt6vectorIiSaIiEE17_M_default_appendEm[_ZNSt6vectorIiSaIiEE17_M_default_appendEm]+0x1d6): undefined reference to `std::__throw_length_error(char const*)'
+/usr/bin/ld: rotation.o: in function `simpleRotate(Cube const&, long) [clone .cold]':
+rotation.cpp:(.text.unlikely+0x16): undefined reference to `operator delete(void*, unsigned long)'
+/usr/bin/ld: rotation.cpp:(.text.unlikely+0x2d): undefined reference to `operator delete(void*, unsigned long)'
+/usr/bin/ld: rotation.cpp:(.text.unlikely+0x43): undefined reference to `operator delete(void*, unsigned long)'
+/usr/bin/ld: rotation.o: in function `_GLOBAL__sub_I_rotation.cpp':
+rotation.cpp:(.text.startup+0x10): undefined reference to `std::ios_base::Init::Init()'
+/usr/bin/ld: rotation.cpp:(.text.startup+0x17): undefined reference to `std::ios_base::Init::~Init()'
+/usr/bin/ld: rotation.o:(.data.rel.local.DW.ref.__gxx_personality_v0[DW.ref.__gxx_personality_v0]+0x0): undefined reference to `__gxx_personality_v0'
+collect2: error: ld returned 1 exit status
