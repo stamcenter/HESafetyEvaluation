@@ -1,0 +1,5 @@
+compile 0.130751
+link 0.042664
+execute 0.008717
+valgrind 0.000911
+unroll 2.826517
