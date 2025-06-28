@@ -1,0 +1,4 @@
+#,securityParam,x1,x2,x3,bgvkeygenRtime,bgvencryptTime,bgvMultTime,bgvAddTime,bgvDecryptTime,bfvkeygenRtime,bfvencryptTime,bfvMultTime,bfvAddTime,bfvDecryptTime,ckkskeygenRtime,ckksencryptTime,ckksMultTime,ckksAddTime,ckksDecryptTime
+99.5,8192.0,513.995,501.01,506.31,10.01,3.0,7.02,0.0,0.0,9.0,2.0,22.02,0.0,0.0,9.0,2.05,5.005,0.0,0.01
+99.5,16384.0,513.995,501.01,506.31,62.11,12.875,42.645,1.0,2.0,56.04,7.0,110.275,0.02,3.0,54.845,10.0,33.425,0.02,5.78
+99.5,32768.0,513.995,501.01,506.31,390.795,49.585,240.64,4.695,10.33,351.295,26.935,552.33,3.005,12.015,361.535,40.045,206.25,3.005,36.82
