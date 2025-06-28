@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <inttypes.h>
+
+extern uint32_t black2b_state();
+
+uint32_t static_d[1];
+
+int main(int argc,char **argv)
+{
+  uint32_t *alloc_d = malloc(4);
+
+  alloc_d[0] = black2b_state();
+
+  return 0;
+}
