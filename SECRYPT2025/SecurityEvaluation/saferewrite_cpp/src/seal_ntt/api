@@ -1,0 +1,5 @@
+in uint64 factor
+in uint32 bitsize
+call verify
+return uint32 z
+
