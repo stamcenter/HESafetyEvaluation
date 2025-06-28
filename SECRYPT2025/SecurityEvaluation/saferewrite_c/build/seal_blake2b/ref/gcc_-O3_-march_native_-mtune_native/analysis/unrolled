@@ -1,0 +1,4 @@
+v1 = mem_c0000f50_52_8
+v2 = constant(32,4294967295)
+out_out_0 = v1
+out_z_0 = v2
